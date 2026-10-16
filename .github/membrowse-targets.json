@@ -2,7 +2,7 @@
   {
     "target_name": "ref-linux-x64",
     "setup_cmd": "pip install -r requirements.txt",
-    "build_cmd": "cd TestDeploymentsProject && fprime-util generate -f -DCMAKE_BUILD_TYPE=RelWithDebInfo \"-DCMAKE_EXE_LINKER_FLAGS=-Wl,-Map=$PWD/build-fprime-automatic-native/Ref.map\" && fprime-util build -j4",
+    "build_cmd": "pip install -q -r requirements.txt && cd TestDeploymentsProject && fprime-util generate -f -DCMAKE_BUILD_TYPE=RelWithDebInfo \"-DCMAKE_EXE_LINKER_FLAGS=-Wl,-Map=$PWD/build-fprime-automatic-native/Ref.map\" && fprime-util build -j4",
     "elf": "TestDeploymentsProject/build-artifacts/Linux/Ref/bin/Ref",
     "ld": "",
     "map_file": "TestDeploymentsProject/build-fprime-automatic-native/Ref.map",
@@ -11,7 +11,7 @@
   {
     "target_name": "zephyr-pico2",
     "setup_cmd": ".github/scripts/membrowse-zephyr-setup.sh",
-    "build_cmd": "rsync -a --delete --exclude .git --exclude 'build-*' ./ ../fprime-zephyr-reference/lib/fprime/ && cd ../fprime-zephyr-reference && fprime-util generate -f -DBOARD=rpi_pico2/rp2350a/m33 && fprime-util build --target FprimeZephyrReference_ReferenceDeployment -j4",
+    "build_cmd": "pip install -q -r requirements.txt && rsync -a --delete --exclude .git --exclude 'build-*' ./ ../fprime-zephyr-reference/lib/fprime/ && cd ../fprime-zephyr-reference && fprime-util generate -f -DBOARD=rpi_pico2/rp2350a/m33 && fprime-util build --target FprimeZephyrReference_ReferenceDeployment -j4",
     "elf": "../fprime-zephyr-reference/build-fprime-automatic-zephyr/zephyr/zephyr.elf",
     "ld": "../fprime-zephyr-reference/build-fprime-automatic-zephyr/zephyr/linker.cmd",
     "map_file": "../fprime-zephyr-reference/build-fprime-automatic-zephyr/zephyr/zephyr.map",
@@ -20,7 +20,7 @@
   {
     "target_name": "zephyr-teensy41",
     "setup_cmd": ".github/scripts/membrowse-zephyr-setup.sh",
-    "build_cmd": "rsync -a --delete --exclude .git --exclude 'build-*' ./ ../fprime-zephyr-reference/lib/fprime/ && cd ../fprime-zephyr-reference && fprime-util generate -f -DBOARD=teensy41 && fprime-util build --target FprimeZephyrReference_ReferenceDeployment -j4",
+    "build_cmd": "pip install -q -r requirements.txt && rsync -a --delete --exclude .git --exclude 'build-*' ./ ../fprime-zephyr-reference/lib/fprime/ && cd ../fprime-zephyr-reference && fprime-util generate -f -DBOARD=teensy41 && fprime-util build --target FprimeZephyrReference_ReferenceDeployment -j4",
     "elf": "../fprime-zephyr-reference/build-fprime-automatic-zephyr/zephyr/zephyr.elf",
     "ld": "../fprime-zephyr-reference/build-fprime-automatic-zephyr/zephyr/linker.cmd",
     "map_file": "../fprime-zephyr-reference/build-fprime-automatic-zephyr/zephyr/zephyr.map",

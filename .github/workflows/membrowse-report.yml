@@ -40,7 +40,7 @@ jobs:
   analyze:
     name: "Analyze (${{ matrix.target_name }})"
     needs: load-targets
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # Matches F´ CI; GCC 13 on 24.04 hits -Werror=array-bounds false positives at -O2
     strategy:
       fail-fast: false
       matrix:
